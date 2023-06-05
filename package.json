@@ -49,6 +49,7 @@
     "webpack-merge": "*"
   },
   "dependencies": {
+    "@splidejs/splide": "^4.1.4",
     "framer-motion": "^10.12.16",
     "prop-types": "*",
     "react": "*",
