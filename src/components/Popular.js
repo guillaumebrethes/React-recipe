@@ -1,7 +1,8 @@
 //  === Import  ===;
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 //  === Import : local  ===;
 
 //  === Component ===;
@@ -21,17 +22,21 @@ const Popular = () => {
 
   return (
     <div>
-      {
-        popular.map((recipe) => (
-          <Wrapper key={recipe.id}>
-            <h3>Popular Picks</h3>
-            <Card>
-              <p>{recipe.title}</p>
-              <img src={recipe.image} alt={recipe.title} />
-            </Card>
-          </Wrapper>
-        ))
-      }
+      <Wrapper>
+        <h3>Popular Picks</h3>
+        <Splide>
+          {
+            popular.map((recipe) => (
+              <SplideSlide>
+                <Card>
+                  <p>{recipe.title}</p>s
+                  <img src={recipe.image} alt={recipe.title} />
+                </Card>
+              </SplideSlide>
+            ))
+          }
+        </Splide>
+      </Wrapper>
     </div>
   );
 };
