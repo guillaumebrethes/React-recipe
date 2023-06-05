@@ -1,10 +1,15 @@
 // == Import
+import { BrowserRouter } from 'react-router-dom';
 import Pages from '../pages/Pages';
+import Category from '../components/Category';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <Pages />
+    <BrowserRouter>
+      <Category />
+      <Pages />
+    </BrowserRouter>
   </div>
 );
 
