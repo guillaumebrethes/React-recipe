@@ -49,9 +49,12 @@
     "webpack-merge": "*"
   },
   "dependencies": {
+    "framer-motion": "^10.12.16",
     "prop-types": "*",
     "react": "*",
     "react-dom": "*",
-    "react-router-dom": "^6.11.2"
+    "react-icons": "^4.9.0",
+    "react-router-dom": "^6.11.2",
+    "styled-components": "^6.0.0-rc.3"
   }
 }
