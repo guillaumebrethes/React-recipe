@@ -16,6 +16,8 @@ const Searched = () => {
     const dataSearched = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${searchValue}`);
     const recipesSearched = await dataSearched.json();
     setSearchRecipes(recipesSearched.results);
+    console.log('recipesSearched.results Searched =>', recipesSearched.results);
+    console.log('recipesSearched Searched =>', recipesSearched);
   };
 
   useEffect(() => {

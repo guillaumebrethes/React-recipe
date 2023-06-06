@@ -11,7 +11,7 @@ import Recipe from './Recipe';
 const Pages = () => {
   const location = useLocation();
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence>
       <Routes Location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/cuisine/:type" element={<Cuisine />} />

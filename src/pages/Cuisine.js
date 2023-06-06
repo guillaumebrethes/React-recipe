@@ -1,21 +1,26 @@
 //  === Import  ===;
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 //  === Import : local  ===;
-
+import '../styles/cuisine.scss';
 //  === Component ===;
 const Cuisine = () => {
-  console.log('Composant Cuisine => ', Cuisine);
-
   const [cuisine, setCuisine] = useState([]);
   const params = useParams();
 
   const getCuisine = async (name) => {
-    // const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`);
-    const recipes = await data.json();
-    setCuisine(recipes.results);
+    const check = localStorage.getItem('cuisine');
+    if (check) {
+      setCuisine(JSON.parse(check));
+    }
+    else {
+      const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`);
+      const recipes = await data.json();
+      localStorage.setItem('cuisine', JSON.stringify(recipes.results));
+      setCuisine(recipes.results);
+    }
+    // console.log('recipes.results Cuisine => ', recipes.results);
+    // console.log('recipes Cuisine => ', recipes);
   };
 
   useEffect(() => {
@@ -24,39 +29,22 @@ const Cuisine = () => {
   }, [params.type]);
 
   return (
-    <Grid>
+    <div className="cuisine">
       {
         cuisine.map((item) => (
-          <Card key={item.id}>
-            <Link to={`/recipe/${item.id}`}>
-              <img src={item.image} alt={item.title} />
-              <h4>{item.title}</h4>
+          <div
+            key={item.id}
+            className="cuisine__div"
+          >
+            <Link to={`/recipe/${item.id}`} className="cuisine__link">
+              <h4 className="cuisine__h4">{item.title}</h4>
+              <img src={item.image} alt={item.title} className="cuisine__img" />
             </Link>
-          </Card>
+          </div>
         ))
       }
-    </Grid>
+    </div>
   );
 };
-
-const Grid = styled.div`
-display: grid
-grid-template-columns: repeat(auto-fit, minmax(20rem,1fr))
-grid-grap:3rem
-`;
-
-const Card = styled.div`
-img{
-  width:100%
-  border-radius:2rem
-}
-a{
-  text-decoration: none;
-}
-h4{
-  text-align: center
-  padding:1rem
-}
-`;
 
 export default Cuisine;

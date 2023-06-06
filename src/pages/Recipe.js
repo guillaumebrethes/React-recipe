@@ -8,7 +8,6 @@ import { styled } from 'styled-components';
 
 //  === Component ===;
 const Recipe = () => {
-  console.log('Composant Recipe => ');
   const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState('instructions');
   const params = useParams();
@@ -18,6 +17,7 @@ const Recipe = () => {
     const recipes = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
     const recipesDetails = await recipes.json();
     setDetails(recipesDetails);
+    console.log('recipesDetails Recipe =>', recipesDetails);
   };
 
   useEffect(() => {
