@@ -1,7 +1,8 @@
-import { FaPizzaSlice, FaHamburgeur } from 'react-icons/fa';
+import { FaPizzaSlice, FaHamburger } from 'react-icons/fa';
 import { GiNoodles, GiChopsticks } from 'react-icons/gi';
+// import { Navlink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { Navlink } from 'react-router-dom';
 
 //  === Import  ===;
 
@@ -9,26 +10,26 @@ import { Navlink } from 'react-router-dom';
 
 //  === Component ===;
 const Category = () => {
-  console.log('Composant Category => ', Category);
+  console.log('Composant Category => ');
 
   return (
     <List>
-      <Navlink to="/cuisine/Italian">
+      <NavLink to="/cuisine/Italian">
         <FaPizzaSlice />
         <h4>Pizza</h4>
-      </Navlink>
-      <Navlink to="/cuisine/American">
-        <FaHamburgeur />
+      </NavLink>
+      <NavLink to="/cuisine/American">
+        <FaHamburger />
         <h4>American</h4>
-      </Navlink>
-      <Navlink to="/cuisine/Thai">
+      </NavLink>
+      <NavLink to="/cuisine/Thai">
         <GiNoodles />
         <h4>Thai</h4>
-      </Navlink>
-      <Navlink to="/cuisine/Japanese">
+      </NavLink>
+      <NavLink to="/cuisine/Japanese">
         <GiChopsticks />
         <h4>Japanese</h4>
-      </Navlink>
+      </NavLink>
     </List>
   );
 };
