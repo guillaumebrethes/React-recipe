@@ -1,7 +1,7 @@
 //  === Import  ===;
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 //  === Import : local  ===;
 
@@ -28,8 +28,10 @@ const Cuisine = () => {
       {
         cuisine.map((item) => (
           <Card key={item.id}>
-            <img src={item.image} alt={item.title} />
-            <h4>{item.title}</h4>
+            <Link to={`/recipe/${item.id}`}>
+              <img src={item.image} alt={item.title} />
+              <h4>{item.title}</h4>
+            </Link>
           </Card>
         ))
       }
