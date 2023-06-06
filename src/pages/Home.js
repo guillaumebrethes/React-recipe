@@ -6,7 +6,7 @@ import Veggie from '../components/Veggie';
 
 //  === Component ===;
 const Home = () => {
-  console.log('Composant Home => ', Home);
+  console.log('Composant Home => ');
 
   return (
     <div>
