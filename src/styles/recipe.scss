@@ -1,0 +1,74 @@
+.recipe {
+  // margin-top: 10rem;
+  // margin-bottom: 5rem;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  flex-wrap: nowrap;
+  // height: 440px;
+  width: 100%;
+  padding: 2rem;
+  // background-color: antiquewhite;
+
+  &__h2 {
+    text-align: center;
+    padding: 2rem;
+    border: solid black 1px;
+  }
+
+  &__img {
+    display: flex;
+    // width: 400px;
+    // height: 400px;
+  }
+
+  &__buttons {
+    // background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    height: 22rem;
+
+    button {
+      display: flex;
+      padding: 1rem 2rem;
+      color: #313131;
+      background: white;
+      border: 2px solid black;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      font-size: 600;
+      height: 50px;
+      width: 130px;
+      cursor: pointer;
+
+      &.active {
+        background: linear-gradient(35deg, #494949, #313131);
+        color: white;
+      }
+    }
+  }
+
+  &__h3 {
+    // background-color: rgb(0, 255, 85);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: flex-start;
+    padding: 1rem;
+    row-gap: 1rem;
+    // max-height: 300px;
+
+    &__h3-sum {
+      display: flex;
+      padding: 1rem;
+    }
+
+    &__h3-ins {
+      display: flex;
+    }
+  }
+
+}
