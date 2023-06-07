@@ -10,12 +10,21 @@ const Recipe = () => {
   const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState('instructions');
   const params = useParams();
+  console.log('details => ', details);
 
   const fetchRecipeDetails = async () => {
+    // const check = localStorage.getItem('details.extendedIngredients.name');
+    // if (check) {
+    // console.log('check => ', check);
+    // setDetails(JSON.parse(check));
+    // }
+    // else {
     // params.name vient des routes Pages
     const recipes = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
     const recipesDetails = await recipes.json();
+    // localStorage.setItem('details.extendedIngredients.name', JSON.stringify(recipesDetails));
     setDetails(recipesDetails);
+    // }
   };
 
   useEffect(() => {
@@ -48,16 +57,18 @@ const Recipe = () => {
               />
               <h3
                 dangerouslySetInnerHTML={{ __html: details.instructions }}
-                className="recipe__h3-sum"
+                className="recipe__h3-ins"
               />
             </div>
           )}
           {activeTab === 'ingredients' && (
-            <ul>
-              {details.extendedIgredients.map((ingredient) => (
-                <li key={ingredient.id} />
-              ))}
-            </ul>
+            <div>
+              <ul>
+                {details.extendedIngredients.map((ingredient) => (
+                  <li key={ingredient.id}> {ingredient.name}</li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
       </div>
