@@ -18,14 +18,15 @@ const Search = () => {
   return (
     <form className="form" onSubmit={submitHandler}>
       <div className="form__div">
-        {/* <div className="form__svg"> */}
-        <FaSearch className="form__svg" />
-        {/* </div> */}
+        <div className="form__svg">
+          <FaSearch className="form__logo" />
+        </div>
         <input
           className="form__input"
           type="text"
           onChange={(e) => setInput(e.target.value)}
           value={input}
+        // placeholder={<FaSearch />}
         />
       </div>
     </form>
